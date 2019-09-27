@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator, Image } from 'react-native';
 
 import Nav from './src/Nav';
 import Generator from './src/Generator';
 import ListItems from './src/ListItems';
+import Input from './src/Input';
+import PickerComponent from './src/PickerComponent';
+import Mount from './src/assets/images/mount.png';
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.mainView}>
-        <Nav name={this.state.appName} />
+        {/* 
         <View style={styles.baseView}>
           <Text style={styles.baseText}>Hello from the other side</Text>
         </View>
@@ -41,7 +44,13 @@ class App extends Component {
           <Text style={styles.baseText}>Hello from the other side</Text>
         </View>
         <Generator addItem={this.addingNewItem} />
-        <ListItems items={this.state.items} delete={this.deleteItem} />
+        <ListItems items={this.state.items} delete={this.deleteItem} /> */}
+        <Nav name={this.state.appName} />
+        {/* <Input /> */}
+        <PickerComponent />
+        <ActivityIndicator />
+
+        <Image source={Mount} style={styles.imageStyle} />
       </View>
     );
   }
@@ -64,6 +73,11 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 20,
     textAlign: 'center'
+  },
+  imageStyle: {
+    width: '100%',
+    height: 200,
+    marginTop: 50
   }
 });
 
